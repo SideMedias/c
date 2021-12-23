@@ -29,7 +29,7 @@ int main(void){
     }
     d=0;
     do{
-        printf("1:90°,2:270°,3:X,4:Y\n");
+        printf("1:R,2:L,3:X,4:Y\n");
         scanf("%d",&c);
         if(d==0){
             switch(c){
