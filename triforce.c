@@ -1,7 +1,6 @@
 #include<stdio.h>
 int main(void){
 	int i,j,num=10;
-//	while(1){
 	for(i=0;i<num;i++){
 		for(j=num;j>i+1;j--){
 			printf(" ");
@@ -35,6 +34,5 @@ int main(void){
 		}
 		printf("\n");
 	}
-//	}
 	return 0;
 }
