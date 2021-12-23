@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+int main(void){
 	int i,j,num=10;
 //	while(1){
 	for(i=0;i<num;i++){
