@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+int main(void){
 	int a,b,c,d;
 	printf("上限を入力\n");
 	scanf("%d",&a);
@@ -13,5 +13,6 @@ int main(){
 		if(d==0){
 			printf("%d\n",b);
 		}
-	}	
+	}
+return 0;
 }
