@@ -20,7 +20,8 @@ int main()
             A[(B[i]+1)%10]=B[i];
         }else if(A[(B[i]+4)%10]==0){
             A[(B[i]+4)%10]=B[i];
-        }
+        }else{
+            printf("error: no space: '%d'\n",B[i]);
     }
     for(i=0;i<10;i++){
         printf("A[%d]:%d\n",i,A[i]);
