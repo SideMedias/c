@@ -21,7 +21,7 @@ int main()
         }else if(A[(B[i]+4)%10]==0){
             A[(B[i]+4)%10]=B[i];
         }else{
-            printf("error: no space: '%d'\n",B[i]);
+            printf("error: Not vacant: '%d'\n",B[i]);
         }
     }
     for(i=0;i<10;i++){
