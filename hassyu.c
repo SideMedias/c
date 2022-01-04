@@ -2,15 +2,15 @@
 
 int main()
 {
-    int i,a;
+    int i,k;
     int A[10]={0,0,0,0,0,0,0,0,0,0};
     int B[10]={0,0,0,0,0,0,0,0,0,0};
     for(i=0;i<10;i++){
-        scanf("%d",&a);
-        if(a==0){
+        scanf("%d",&k);
+        if(k==0){
             break;
         }else{
-            B[i]=a;
+            B[i]=k;
         }
     }
     for(i=0;i<10;i++){
