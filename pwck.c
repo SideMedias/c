@@ -19,7 +19,7 @@ int pwck(char *pw){
 			j=1;
 	return j;
 }
-int main(){
+void main(){
 	char pw[21];
 	int i;
 	printf("PASSWORDを設定しましょう\n要件 長さ：8文字以上20文字以内\n文字の種類：英数字\n");
@@ -41,5 +41,4 @@ int main(){
 		default:
 			break;
 	}
-	return 0;
 }
