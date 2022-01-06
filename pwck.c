@@ -7,17 +7,15 @@ int pwck(char *pw){
 		if(isdigit(pw[i]))
 			j++;
 	}
-	if(j>0)
-		j=0;
-	else
-		j=3;
+	if(j<1)
+		return 3;
 	for(i=0;pw[i]!='\0';i++){
 		if(isalnum(pw[i])==0)
-			j=2;
+			return 2;
 	}
 	if(strlen(pw)<8)
-			j=1;
-	return j;
+			return 1;
+	return 0;
 }
 void main(){
 	char pw[21];
