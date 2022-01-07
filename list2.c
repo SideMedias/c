@@ -34,9 +34,9 @@ int main(){
                 }
             }
             if(j>0){
-                printf("%s,%d exist\n",s,j);
+                printf("%s\n%d exist\n",s,j);
             }else{
-                printf("%s,not exist\n",s);
+                printf("%s\nnot exist\n",s);
             }
             break;
         }
@@ -51,9 +51,9 @@ int main(){
                 }
             }
             if(j>0){
-                printf("%s,%d exist\n",s,j);
+                printf("%s\n%d exist\n",s,j);
             }else{
-                printf("%s,not exist\n",s);
+                printf("%s\nnot exist\n",s);
             }
             break;
         }
@@ -68,9 +68,9 @@ int main(){
                 }
             }
             if(j>0){
-                printf("%d,%d exist\n",n,j);
+                printf("%d\n%d exist\n",n,j);
             }else{
-                printf("%d,not exist\n",n);
+                printf("%d\nnot exist\n",n);
             }
             break;
         }
@@ -85,9 +85,9 @@ int main(){
                 }
             }
             if(j>0){
-                printf("%d,%d exist\n",n,j);
+                printf("%d\n%d exist\n",n,j);
             }else{
-                printf("%d,not exist\n",n);
+                printf("%d\nnot exist\n",n);
             }
             break;
         }
@@ -102,9 +102,9 @@ int main(){
                 }
             }
             if(j>0){
-                printf("%.1f,%d exist\n",n,j);
+                printf("%.1f\n%d exist\n",n,j);
             }else{
-                printf("%.1f,not exist\n",n);
+                printf("%.1f\nnot exist\n",n);
             }
             break;
         }
