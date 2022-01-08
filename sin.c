@@ -48,7 +48,8 @@ void main(){
             sc--;
         }
         if(!strcmp(st,"12345")){
-            printf("クリアです。\nscore:%d\n",sc);
+            printf("クリアです。\n");
+            printf("score:%d\n",sc);
             break;
         }
     }
