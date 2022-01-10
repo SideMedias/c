@@ -37,16 +37,51 @@ void game(){
         }
         printf("\n");
         Card player[10],dealer[10];
-        int cnum=0,pnum=0,pten=0,dnum=0,dten=0;
-        dten+=card[cnum].ten;
-        dealer[dnum++]=card[cnum++];
-        dealer[dnum++]=card[cnum++];
-        pten+=card[cnum].ten;
-        player[pnum++]=card[cnum++];
-        pten+=card[cnum].ten;
-        player[pnum++]=card[cnum++];
-        printf("ディーラー:%s,*:%d\n",dealer[0].suji,dten);
-        printf("プレイヤー:%s,%s:%d\n",player[0].suji,player[1].suji,pten);
+        int cardNum=0,playerNum=0,playerTen=0,dealerNum=0,dealerTen=0;
+        dealerTen+=card[cardNum].ten;
+        dealer[dealerNum++]=card[cardNum++];
+        dealer[dealerNum++]=card[cardNum++];
+        player[playerNum++]=card[cardNum++];
+        player[playerNum++]=card[cardNum++];
+        printf("Dealer:%s,*:%d\n",dealer[0].suji,dealerTen);
+        while(1){
+            printf("Player:");
+            for(i=0;i<playerNum;i++){
+                printf("%s",player[i].suji);
+                if(i<playerNum-1)printf(",");
+            }
+            playerTen=0;
+            for(i=0;i<playerNum;i++){
+                playerTen+=player[i].ten;
+            }
+            for(i=0;playerTen>21&&i<playerNum;i++){
+                if(player[i].ten==11){
+                    player[i].ten=1;
+                    playerTen=0;
+                    int j;
+                    for(j=0;j<playerNum;j++){
+                        playerTen+=player[j].ten;
+                    }
+                }
+            }
+            printf(":%d\n",playerTen);
+            if(playerTen>21){
+                printf("Bust!\n");
+                playerTen=0;
+                break;
+            }
+            if(playerTen==21){
+                printf("Blackjack!\n");
+                break;
+            }
+            printf("Hit(0) or Stand(1)?\n");
+            int select;
+            scanf("%d",&select);
+            if(!select){
+                printf("Hit!\n");
+                player[playerNum++]=card[cardNum++];
+            }else if(select)break;
+        }
         break;
     }
 }
@@ -68,13 +103,13 @@ void main(){
     printf("ブラックジャックです。\n");
     printf("プレイヤーはカードの合計点数が21点を超えないように、ディーラーより高い点数を目指してください。\n");
     while(1){
-        printf("1:ゲーム開始 2:ルール説明 3:終了\n");
+        printf("0:ゲーム開始 1:ルール説明 2:終了\n");
         int modeSelect;
         scanf("%d",&modeSelect);
         switch(modeSelect){
-            case 1:game();break;
-            case 2:rule();break;
-            case 3:return;
+            case 0:game();break;
+            case 1:rule();break;
+            case 2:return;
             default:break;
         }
     }
