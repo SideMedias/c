@@ -72,14 +72,8 @@ void main(){
         int modeSelect;
         scanf("%d",&modeSelect);
         switch(modeSelect){
-            case 1:{
-                game();
-                break;
-            }
-            case 2:{
-                rule();
-                break;
-            }
+            case 1:game();break;
+            case 2:rule();break;
             case 3:return;
             default:break;
         }
