@@ -76,14 +76,20 @@ void game(){
                 bj=1;
                 break;
             }
-            if(playerTen==21)break;
+            if(playerTen==21){
+                printf("Stand!\n");
+                break;
+            }
             printf("Hit(0) or Stand(1)?\n");
             int select;
             scanf("%d",&select);
             if(!select){
                 printf("Hit!\n");
                 player[playerNum++]=card[cardNum++];
-            }else if(select)break;
+            }else if(select){
+                printf("Stand!\n");
+                break;
+            }
         }
         while(1){
             printf("Dealer:");
@@ -107,19 +113,25 @@ void game(){
             }
             printf(":%d\n",dealerTen);
             if(dealerTen>21){
-                printf("Bust!\n");
+                printf("Bust\n");
                 dealerTen=0;
                 break;
             }
             if(dealerTen==21&&dealerNum<3){
-                printf("Blackjack!\n");
+                printf("Blackjack\n");
                 break;
             }
-            if(dealerTen==21)break;
-            if(dealerTen<17){
-                printf("Hit!\n");
+            if(dealerTen==21){
+                printf("Stand\n");
+                break;
+            }
+            if(dealerTen<playerTen){
+                printf("Hit\n");
                 dealer[dealerNum++]=card[cardNum++];
-            }else break;
+            }else{
+                printf("Stand\n");
+                break;
+            }
         }
         printf("Dealer:");
             for(i=0;i<dealerNum;i++){
