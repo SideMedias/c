@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 #include<time.h>
 typedef struct Card{
     char suji[3];
@@ -70,10 +69,11 @@ void game(){
                 playerTen=0;
                 break;
             }
-            if(playerTen==21){
+            if(playerTen==21&&playerNum<2){
                 printf("Blackjack!\n");
                 break;
             }
+            if(playerTen==21)break;
             printf("Hit(0) or Stand(1)?\n");
             int select;
             scanf("%d",&select);
@@ -82,7 +82,61 @@ void game(){
                 player[playerNum++]=card[cardNum++];
             }else if(select)break;
         }
-        break;
+        while(1){
+            printf("Dealer:");
+            for(i=0;i<dealerNum;i++){
+                printf("%s",dealer[i].suji);
+                if(i<dealerNum-1)printf(",");
+            }
+            dealerTen=0;
+            for(i=0;i<dealerNum;i++){
+                dealerTen+=dealer[i].ten;
+            }
+            for(i=0;dealerTen>21&&i<dealerNum;i++){
+                if(dealer[i].ten==11){
+                    dealer[i].ten=1;
+                    dealerTen=0;
+                    int j;
+                    for(j=0;j<dealerNum;j++){
+                        dealerTen+=dealer[j].ten;
+                    }
+                }
+            }
+            printf(":%d\n",dealerTen);
+            if(dealerTen>21){
+                printf("Bust!\n");
+                dealerTen=0;
+                break;
+            }
+            if(dealerTen==21&&dealerNum<2){
+                printf("Blackjack!\n");
+                break;
+            }
+            if(dealerTen==21)break;
+            if(dealerTen<17){
+                printf("Hit!\n");
+                dealer[dealerNum++]=card[cardNum++];
+            }else break;
+        }
+        printf("Dealer:");
+            for(i=0;i<dealerNum;i++){
+                printf("%s",dealer[i].suji);
+                if(i<dealerNum-1)printf(",");
+            }
+        printf(":%d\n",dealerTen);
+        printf("Player:");
+            for(i=0;i<playerNum;i++){
+                printf("%s",player[i].suji);
+                if(i<playerNum-1)printf(",");
+            }
+        printf(":%d\n",playerTen);
+        if(playerTen>dealerTen)printf("あなたの勝ちです!\n");
+        if(playerTen==dealerTen)printf("引き分けです\n");
+        if(playerTen<dealerTen)printf("あなたの負けです\n");
+        printf("0:もう一戦する 1:メニューへ戻る\n");
+        int select;
+        scanf("%d",&select);
+        if(select)break;
     }
 }
 void rule(){
