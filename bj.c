@@ -6,7 +6,9 @@ typedef struct Card{
     int ten;
 }Card;
 void game(){
+    int bet=100;
     while(1){
+        bet-=10;
         srand((unsigned int)time(NULL));
         Card card[]={
             "A",11,"A",11,"A",11,"A",11,
@@ -23,7 +25,7 @@ void game(){
             "3",3,"3",3,"3",3,"3",3,
             "2",2,"2",2,"2",2,"2",2,
         };
-        int i;
+        int i,bj=0;
         for(i=0;i<1000;i++){
             int j=rand()%52,k=rand()%52;
             Card tmp;
@@ -31,11 +33,11 @@ void game(){
             card[j]=card[k];
             card[k]=tmp;
         }
-        for(i=0;i<52;i++){
+/*        for(i=0;i<52;i++){
             printf("%s:%d ",card[i].suji,card[i].ten);
         }
         printf("\n");
-        Card player[10],dealer[10];
+*/        Card player[10],dealer[10];
         int cardNum=0,playerNum=0,playerTen=0,dealerNum=0,dealerTen=0;
         dealerTen+=card[cardNum].ten;
         dealer[dealerNum++]=card[cardNum++];
@@ -69,8 +71,9 @@ void game(){
                 playerTen=0;
                 break;
             }
-            if(playerTen==21&&playerNum<2){
+            if(playerTen==21&&playerNum<3){
                 printf("Blackjack!\n");
+                bj=1;
                 break;
             }
             if(playerTen==21)break;
@@ -108,7 +111,7 @@ void game(){
                 dealerTen=0;
                 break;
             }
-            if(dealerTen==21&&dealerNum<2){
+            if(dealerTen==21&&dealerNum<3){
                 printf("Blackjack!\n");
                 break;
             }
@@ -130,13 +133,29 @@ void game(){
                 if(i<playerNum-1)printf(",");
             }
         printf(":%d\n",playerTen);
-        if(playerTen>dealerTen)printf("あなたの勝ちです!\n");
-        if(playerTen==dealerTen)printf("引き分けです\n");
+        if(playerTen>dealerTen){
+            printf("あなたの勝ちです!\n");
+            if(bj)bet+=25;
+            else bet+=20;
+        }
+        if(playerTen==dealerTen){
+            printf("引き分けです\n");
+            bet+=10;
+        }
         if(playerTen<dealerTen)printf("あなたの負けです\n");
-        printf("0:もう一戦する 1:メニューへ戻る\n");
-        int select;
-        scanf("%d",&select);
-        if(select)break;
+        printf("$%d\n",bet);
+        while(1){
+            printf("0:もう一戦する 1:メニューへ戻る\n");
+            int select;
+            scanf("%d",&select);
+            if(select){
+                printf("所持金がリセットされます。本当によろしいですか？\n");
+                printf("0:はい 1:いいえ\n");
+                scanf("%d",&select);
+                if(!select)return;
+            }
+            if(!select)break;
+        }
     }
 }
 void rule(){
