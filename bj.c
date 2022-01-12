@@ -153,8 +153,7 @@ void game(){
             printf("あなたの勝ちです!\n");
             if(bj)credit+=bet*2.5;
             else credit+=bet*2;
-        }
-        if(playerTen==dealerTen&&playerTen>0){
+        }else if(playerTen==dealerTen&&playerTen>0){
             printf("引き分けです\n");
             credit+=bet;
         }else printf("あなたの負けです\n");
