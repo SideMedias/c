@@ -6,7 +6,7 @@ int main()
     
     int i,num,nums[10];
     
-    printf("2進数に変換する数値を入力(0~1024)\n");
+    printf("2進数に変換する数値を入力(0~1023)\n");
     scanf("%d",&num);
     
     for(i=0;i<10;i++){
