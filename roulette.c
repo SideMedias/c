@@ -9,6 +9,7 @@ typedef struct Pocket{
 	int color;
 }Pocket;
 void main(){
+	srand((unsigned int)time(NULL));
 	Pocket pocket[37]={
 		0,g,1,r,2,b,3,r,4,b,5,r,6,b,7,r,8,b,9,r,10,b,11,b,12,r,
 		13,b,14,r,15,b,16,r,17,b,18,r,19,r,20,b,21,r,22,b,23,r,24,b,
@@ -19,8 +20,7 @@ void main(){
 	printf("19世紀初めにフランスで現在の形が完成し、「小さな輪」を意味するフランス語がゲームの名前となった。\n");
 	int credit=1000;
 	printf("Credit:%d\n",credit);
-	while(1){
-		srand(time(NULL));		
+	while(1){		
 		printf("0:Start,1:End");
 		int i;
 		scanf("%d",&i);
