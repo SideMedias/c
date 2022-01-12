@@ -6,9 +6,13 @@ typedef struct Card{
     int ten;
 }Card;
 void game(){
-    int credit=100;
+    int credit=1000;
+    print("Credit:%d\n",credit);
     while(1){
-        credit-=10;
+        printf("Bet(0~%d):",credit);
+        int bet;
+        scanf("%d",&bet);
+        credit-=bet;
         srand(time(NULL));
         Card card[]={
             "A",11,"A",11,"A",11,"A",11,
@@ -147,13 +151,14 @@ void game(){
         printf(":%d\n",playerTen);
         if(playerTen>dealerTen){
             printf("あなたの勝ちです!\n");
-            if(bj)credit+=25;
-            else credit+=20;
+            if(bj)credit+=bet*2.5;
+            else credit+=bet*2;
         }
         if(playerTen==dealerTen&&playerTen>0){
             printf("引き分けです\n");
-            credit+=10;
+            credit+=bet;
         }else printf("あなたの負けです\n");
+        if(credit<1)credit=1000;
         printf("Credit:%d\n",credit);
         while(1){
             printf("0:もう一戦する 1:メニューへ戻る\n");
