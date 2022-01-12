@@ -10,12 +10,12 @@ int main()
     scanf("%d",&num);
     
     for(i=0;i<10;i++){
-        nums[i]=num%d;
+        nums[i]=num%2;
         num=num/2;
     }
     
     for(i=9;i>=0;i--){
-        printf("%d",str[i]);
+        printf("%d",nums[i]);
     }
     printf("\n");
 
