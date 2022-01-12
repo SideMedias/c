@@ -6,10 +6,10 @@ typedef struct Card{
     int ten;
 }Card;
 void game(){
-    int bet=100;
+    int credit=100;
     while(1){
-        bet-=10;
-        srand((unsigned int)time(NULL));
+        credit-=10;
+        srand(time(NULL));
         Card card[]={
             "A",11,"A",11,"A",11,"A",11,
             "K",10,"K",10,"K",10,"K",10,
@@ -125,7 +125,7 @@ void game(){
                 printf("Stand\n");
                 break;
             }
-            if(dealerTen<playerTen){
+            if(dealerTen<17){
                 printf("Hit\n");
                 dealer[dealerNum++]=card[cardNum++];
             }else{
@@ -147,15 +147,14 @@ void game(){
         printf(":%d\n",playerTen);
         if(playerTen>dealerTen){
             printf("あなたの勝ちです!\n");
-            if(bj)bet+=25;
-            else bet+=20;
+            if(bj)credit+=25;
+            else credit+=20;
         }
-        if(playerTen==dealerTen){
+        if(playerTen==dealerTen&&playerTen>0){
             printf("引き分けです\n");
-            bet+=10;
-        }
-        if(playerTen<dealerTen)printf("あなたの負けです\n");
-        printf("$%d\n",bet);
+            credit+=10;
+        }else printf("あなたの負けです\n");
+        printf("Credit:%d\n",credit);
         while(1){
             printf("0:もう一戦する 1:メニューへ戻る\n");
             int select;
