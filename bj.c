@@ -7,7 +7,7 @@ typedef struct Card{
 }Card;
 void game(){
     int credit=1000;
-    print("Credit:%d\n",credit);
+    printf("Credit:%d\n",credit);
     while(1){
         printf("Bet(0~%d):",credit);
         int bet;
